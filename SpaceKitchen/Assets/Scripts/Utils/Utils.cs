@@ -6,7 +6,7 @@ namespace Utils
 {
     public class Utils
     {
-        public static TextMesh CreateWorldText(string text, Transform parent =null, Vector3 localPos = default(Vector3), int fontSize = 20, Color fontColor = default(Color), TextAnchor textAnchor = TextAnchor.UpperLeft)
+        public static TextMesh CreateWorldText(string text, Transform parent =null, Vector3 localPos = default(Vector3), int fontSize = 500, Color fontColor = default(Color), TextAnchor textAnchor = TextAnchor.UpperLeft)
         {
             if (fontColor == default (Color))
             {

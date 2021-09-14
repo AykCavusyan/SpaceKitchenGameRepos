@@ -9,7 +9,7 @@ public class testingscript : MonoBehaviour
 
     private void Start()
     {        
-        gridSystem = new GridSystem(3, 2, 1f);
+        gridSystem = new GridSystem(3, 2, 30f, new Vector3(20, 0));
     }
 
     private void Update()
