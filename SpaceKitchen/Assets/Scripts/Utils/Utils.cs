@@ -6,9 +6,12 @@ namespace Utils
 {
     public class Utils
     {
-        public static TextMesh CreateWorldText(string text, Transform parent =null, Vector3 localPos = default(Vector3), int fontSize = 40, Color fontColor = default(Color), TextAnchor textAnchor = TextAnchor.UpperLeft)
+        public static TextMesh CreateWorldText(string text, Transform parent =null, Vector3 localPos = default(Vector3), int fontSize = 20, Color fontColor = default(Color), TextAnchor textAnchor = TextAnchor.UpperLeft)
         {
-            if (fontColor == default(Color)) fontColor = Color.white;
+            if (fontColor == default (Color))
+            {
+                fontColor = Color.white;
+            }
             return CreateWorldText(parent, text, localPos, fontSize, fontColor, textAnchor);
         }
 
@@ -26,6 +29,31 @@ namespace Utils
 
             return textMesh;
         }
-    }
+
+        // Get mouse Position in World with Z = 0f
+        public static Vector3 GetMouseWorldPosition ()
+        {
+            Vector3 vector3 = GetMouseWorldPositionWithZ (Input.mousePosition, Camera.main);
+            vector3.z = 0f;
+            return vector3;
+        }
+
+        public static Vector3 GetMouseWorldPositionWithZ ()
+        {
+            return GetMouseWorldPositionWithZ (Input.mousePosition, Camera.main);
+        }
+
+        public static Vector3 GetMouseWorldPositionWithZ (Camera worldCamera)
+        {
+            return GetMouseWorldPositionWithZ (Input.mousePosition, worldCamera);
+        }
+
+        public static Vector3 GetMouseWorldPositionWithZ (Vector3 screenPosition, Camera worldCamera)
+        {
+            Vector3 worldPosition = worldCamera.ScreenToWorldPoint (screenPosition);
+            return worldPosition;
+        }
+
+    }  
 }
 
